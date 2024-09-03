@@ -13,6 +13,6 @@ git add .
 git commit -m "$commit_message"
 
 # Push the changes to the remote repository
-git push origin maaster  # or the branch name you're working on
+git push origin master  # Updated to push to 'master' branch
 
 echo "Changes have been pushed to the repository."
