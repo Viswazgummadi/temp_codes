@@ -42,6 +42,7 @@ solve()
 
 		if(check(arr[mid]))
 		{
+			//? ans = mid;
 			low = mid + 1;
 		}
 		else
