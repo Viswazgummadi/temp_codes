@@ -22,5 +22,14 @@ cp:
 		echo "$${dest}.cpp already exists"; \
 	fi
 
+del%:
+	@if [ -f $*.cpp ]; then \
+		rm $*.cpp; \
+		rm -f $*; \
+		echo "$*.cpp and $* deleted"; \
+	else \
+		echo "$*.cpp does not exist"; \
+	fi
+
 # Phony targets
-.PHONY: build% run% cp
+.PHONY: build% run% cp del%

@@ -36,6 +36,22 @@ solve()
 		cout<<check(arr[i])<<endl;
 	}
 
+	while(low<=high)
+	{
+		int mid = (low+high)/2;
+
+		if(check(arr[mid]))
+		{
+			low = mid + 1;
+		}
+		else
+		{
+			ans = mid;
+			high = mid - 1;
+		}
+	}
+	cout<<"\n"<<ans<<endl;
+
 }
 
 signed
