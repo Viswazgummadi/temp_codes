@@ -4,12 +4,13 @@ CFLAGS = -g
 
 # Targets
 build%:
-	echo '// C++ file $*.cpp' > $*.cpp
+	@if [ ! -f $*.cpp ]; then \
+		echo '// C++ file $*.cpp' > $*.cpp; \
+	fi
 
 run%: build%
-	$(CC) $(CFLAGS) -o $* $*.cpp
-	./$*
+	@$(CC) $(CFLAGS) -o $* $*.cpp
+	@./$*
 
 # Phony targets
 .PHONY: build% run%
-
