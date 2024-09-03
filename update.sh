@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the commit message, either passed as an argument or use a default message
-commit_message="${1:-'Auto-commit: $(date +\"%Y-%m-%d %H:%M:%S\")'}"
+commit_message="${1:-"Auto-commit: $(date +'%Y-%m-%d %H:%M:%S')"}"
 
 # Navigate to your git repository
 cd ~/workspace/cpp || { echo "Repository not found"; exit 1; }
