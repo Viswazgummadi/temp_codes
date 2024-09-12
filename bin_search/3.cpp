@@ -3,38 +3,47 @@
 
 using namespace std;
 
-int n;
-int arr[100100];
+int n,k;
+int arr[100100], brr[100100];
 
 
 int
-check(int val)
+check(int x)
 {
-	return val>=arr[0]?1:0;
+	long long ans = 0;
+	for (int i = 0; i < n; i++)
+	{
+		ans += upper_bound(brr, brr + n, arr[i]) - brr;
+	}
+
+	return ans < k;
 }
 
 void
 solve()
 {
 
-	cin>>n;
+	cin>>n>>k;
 
 	for(int i=0;i<n;i++)
 	{
 		cout<<"arr["<<i<<"]:"<<endl;
 		cin>>arr[i];
 	}
-
-	int low = 0;
-	int high = n-1;
-	int ans = 0;
-
-
-	cout<<endl;
 	for(int i=0;i<n;i++)
 	{
-		cout<<check(arr[i])<<endl;
+		cout<<"brr["<<i<<"]:"<<endl;
+		cin>>brr[i];
 	}
+
+	sort(arr, arr + n);
+	sort(brr, brr + n);
+
+	int low = 0;
+	int high = arr[n-1] + brr[n-1];
+	int ans = -1;
+
+
 
 	while(low<=high)
 	{
@@ -42,12 +51,11 @@ solve()
 
 		if(check(arr[mid]))
 		{
-			low = mid + 1;
+
 		}
 		else
 		{
-			ans = mid;
-			high = mid - 1;
+
 		}
 	}
 	cout<<"\n"<<ans<<endl;
